@@ -16,3 +16,8 @@
 .postagens{
     background-color: white; 
 }
+
+.ca{
+    background: linear-gradient(36deg, blue 8%, rgb(106, 151, 172) 80%)!important;
+}
+

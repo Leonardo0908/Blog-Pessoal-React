@@ -7,20 +7,25 @@ function Navbar(){
     return(
         <>
         
-         <AppBar position="static">
+         <AppBar position="static" className="back">
              <Toolbar variant="dense">
                  <Box className="cursor">
+
                      <Typography variant="h5" color="inherit">
                     BlogPessoal
                      </Typography>
                  </Box>
 
                  <Box display="flex" justifyContent="start">
+
+                    <Link to="/home" className="text-decorator-none">
                      <Box mx={1} className="cursor">
                          <Typography variant="h6" color="inherit">
                              Home
                          </Typography>
                      </Box>
+                    </Link>
+
                      <Box mx={1} className="cursor">
                         <Typography variant="h6" color="inherit" >
                             Postagens
@@ -31,11 +36,13 @@ function Navbar(){
                             Temas
                         </Typography>
                      </Box>
+
                      <Box mx={1} className="cursor">
                         <Typography variant="h6" color="inherit" >
                             Cadastrar Temas
                         </Typography>
                      </Box>
+                     
                      <Link to="/login" className="text-decorator-none">
                     <Box mx={1} style={{ cursor: "pointer", color: "white" }}>
                             <Typography variant="h6" color="inherit" >

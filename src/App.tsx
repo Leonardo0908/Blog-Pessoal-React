@@ -4,6 +4,7 @@ import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
 import Home from "./paginas/home/Home";
 import Login from "./paginas/login/Login";
+import CadastroUsuario from "./paginas/cadastroUsuario/CadastroUsuario";
 import './App.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Switch>
           <div style={{minHeight: "100vh"}}>
          
-          <Route exact path="/">
+            <Route exact path="/">
                <Login />
             </Route>
 
@@ -24,6 +25,10 @@ function App() {
            
             <Route path="/home">
                <Home />
+            </Route>
+
+            <Route  path="/cadastrousuario">
+               <CadastroUsuario />
             </Route>
           
           </div>
