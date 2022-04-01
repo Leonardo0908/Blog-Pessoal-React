@@ -19,6 +19,7 @@ export const api = axios.create({
         setDado(resposta.data)
     }
 
+    //header = token para autorização 
     export const buscaId = async(url: any,setDado: any, header: any) => { 
         const resposta = await api.get(url,header)
         setDado(resposta.data)
