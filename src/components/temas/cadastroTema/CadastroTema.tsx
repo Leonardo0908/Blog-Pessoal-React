@@ -4,7 +4,7 @@ import {useHistory, useParams } from 'react-router-dom'
 import './CadastroTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
-import { busca, buscaId, post, put } from '../../../services/Service';
+import {  buscaId, post, put } from '../../../services/Service';
 
 
 function CadastroTema() {
@@ -76,6 +76,8 @@ function CadastroTema() {
         }
   
     return (
+       <>
+      
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
@@ -83,8 +85,11 @@ function CadastroTema() {
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
+                
             </form>
         </Container>
+        
+       </>
     )
 }
 

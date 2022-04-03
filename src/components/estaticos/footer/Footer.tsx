@@ -18,10 +18,10 @@ function Footer() {
                             <a href="https://www.facebook.com/generationbrasil" target="_blank">
                                 <FacebookIcon className='redes' />
                             </a>
-                            <a href="https://www.instagram.com/generationbrasil/" target="_blank">
+                            <a href="https://www.instagram.com/leonardo_e_s_rodrigues/" target="_blank">
                                 <InstagramIcon className='redes' />
                             </a>
-                            <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
+                            <a href="https://www.linkedin.com/in/leosouzarodrigues/" target="_blank">
                                 <LinkedInIcon className='redes' />
                             </a>
                         </Box>

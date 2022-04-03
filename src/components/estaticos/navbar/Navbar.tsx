@@ -17,53 +17,55 @@ function Navbar(){
     return(
         <>
         
-         <AppBar position="static" className="back">
-             <Toolbar variant="dense">
-                 <Box className="cursor">
-                     <Typography variant="h5" color="inherit">
+         <AppBar position="static" className="back" >
+             <Toolbar variant="dense"  >
+                 <Box className="cursor"   >
+                     <Typography variant="h5"  >
                     BlogPessoal
                      </Typography>
                  </Box>
 
-                 <Box display="flex" justifyContent="start">
+                 <Box display="flex" justifyContent="start" id="home">
 
-                    <Link to="/home" className="text-decorator-none">
-                        <Box mx={1} className="cursor">
-                            <Typography variant="h6" color="inherit">
+                    <Link to="/home" className="cursor">
+                        <Box mx={1} >
+                            <Typography variant="h6">
                                 Home
                             </Typography>
                         </Box>
                     </Link>
 
-                    <Link to="/post" className="text-decorator-none">
-                        <Box mx={1} className="cursor">
-                            <Typography variant="h6" color="inherit" >
+                    <Link to="/posts" className="cursor">
+                        <Box mx={1} >
+                            <Typography variant="h6" >
                                 Postagens
                             </Typography>
                         </Box>
                      </Link>
 
-                     <Link to="/temas" className="text-decorator-none">
-                        <Box mx={1} className="cursor">
-                            <Typography variant="h6" color="inherit" >
+                     <Link to="/temas" className="cursor">
+                        <Box mx={1} >
+                            <Typography variant="h6" >
                                 Temas
                             </Typography>
                         </Box>
                      </Link>
 
-                    <Link to="/formularioTema" className="text-decorator-none">
-                        <Box mx={1} className="cursor">
-                            <Typography variant="h6" color="inherit" >
+                    <Link to="/formularioTema" className="cursor">
+                        <Box mx={1} >
+                            <Typography variant="h6"  >
                                 Cadastrar Temas
                             </Typography>
                         </Box>
                      </Link>
-
-                        <Box mx={1} onClick={goLogout} style={{ cursor: "pointer", color: "white" }}>
-                            <Typography variant="h6" color="inherit" >
+                    
+                    <Link to="" className="cursor">
+                        <Box mx={1} onClick={goLogout} >
+                            <Typography variant="h6" >
                                 Logout
                             </Typography>
                         </Box>
+                     </Link>    
                  </Box>
              </Toolbar>
          </AppBar>

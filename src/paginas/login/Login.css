@@ -10,15 +10,19 @@
      background-size: cover;
      background-position: center;
 
-     width: 100vw;
-     min-height: calc(100vh - 64px );
+    /* width: 100vw;
+     min-height: calc(100vh - 128px);*/
  }
  
  .text-decorator-none{
      text-decoration: none;
- }
+ } 
 
 .fundo{
     height: 500px;
+}
+
+.fundo2{
+    background: linear-gradient(36deg, rgb(204, 204, 213) 8%, rgb(123, 184, 213) 80%);
 }
 
