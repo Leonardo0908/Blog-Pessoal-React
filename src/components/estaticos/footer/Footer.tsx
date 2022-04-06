@@ -1,19 +1,18 @@
-import React from "react";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import { Grid, Box, Typography } from "@material-ui/core";
-
-import { TokenState } from "../../../store/tokens/tokensReducer";
-import { useSelector } from "react-redux";
-import "./Footer.css";
+import React from 'react';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import {Typography, Box, Grid } from '@material-ui/core';
+import './Footer.css';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function Footer() {
 
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
-    
+    );
+
     var footerComponent;
 
     if(token != ""){
@@ -27,10 +26,10 @@ function Footer() {
                     <a href="https://www.facebook.com/generationbrasil" target="_blank">
                         <FacebookIcon className='redes' />
                     </a>
-                    <a href="https://www.instagram.com/leonardo_e_s_rodrigues/" target="_blank">
+                    <a href="https://www.instagram.com/generationbrasil/" target="_blank">
                         <InstagramIcon className='redes' />
                     </a>
-                    <a href="https://www.linkedin.com/in/leosouzarodrigues/" target="_blank">
+                    <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
                         <LinkedInIcon className='redes' />
                     </a>
                 </Box>
@@ -48,7 +47,6 @@ function Footer() {
         </Grid>
     </Grid>
     }
-
     return (
         <>
             {footerComponent}

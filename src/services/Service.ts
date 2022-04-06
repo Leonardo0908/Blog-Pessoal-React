@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: "https://leoblog21pessoal.herokuapp.com"
+    baseURL: 'https://leoblog21pessoal.herokuapp.com'
 })
 
     export const cadastroUsuario = async(url: any,dados: any,setDado: any) => { 
@@ -19,7 +19,6 @@ export const api = axios.create({
         setDado(resposta.data)
     }
 
-    //header = token para autorização 
     export const buscaId = async(url: any,setDado: any, header: any) => { 
         const resposta = await api.get(url,header)
         setDado(resposta.data)
@@ -38,7 +37,3 @@ export const api = axios.create({
     export const deleteId = async(url: any,header: any) => { 
         await api.delete(url,header)
     }
-
-
-
-    

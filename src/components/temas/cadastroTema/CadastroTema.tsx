@@ -1,12 +1,12 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
-
-import Tema from '../../../models/Tema';
-import {  buscaId, post, put } from '../../../services/Service';
-import { TokenState } from '../../../store/tokens/tokensReducer';
-import { useSelector } from 'react-redux';
 import './CadastroTema.css';
+import Tema from '../../../models/Tema';
+import { buscaId, post, put } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
@@ -15,15 +15,23 @@ function CadastroTema() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
       );
-    
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
 
     useEffect(() => {
-        if (token === "") {
-            alert("Você precisa estar logado")
+        if (token == "") {
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+                });
             history.push("/login")
     
         }
@@ -36,7 +44,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/temas/${id}`, setTema, {
+        buscaId(`/tema/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
@@ -58,19 +66,37 @@ function CadastroTema() {
     
             if (id !== undefined) {
                 console.log(tema)
-                put(`/temas`, tema, setTema, {
+                put(`/tema`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Tema atualizado com sucesso');
+                toast.success('Tema atualizado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
             } else {
-                post(`/temas`, tema, setTema, {
+                post(`/tema`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Tema cadastrado com sucesso');
+                toast.success('Tema cadastrado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
             }
             back()
     
@@ -81,8 +107,6 @@ function CadastroTema() {
         }
   
     return (
-       <>
-      
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
@@ -90,11 +114,8 @@ function CadastroTema() {
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
-                
             </form>
         </Container>
-        
-       </>
     )
 }
 

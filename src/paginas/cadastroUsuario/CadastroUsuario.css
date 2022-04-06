@@ -1,6 +1,5 @@
 .imagem2{
-    /*background-image: url(https://i.imgur.com/d5bMdDJ.jpg);*/
-    background-image: url(  https://www.achetudoeregiao.com.br/noticias/gifs/superlua.jpg);
+    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -8,10 +7,10 @@
     background-position: center;
 }
 
-.texto2{
+.textos2{
     font-weight: bold !important;
 }
 
-.cancelar{
+.btnCancelar{
     margin-right: 20px !important;
 }

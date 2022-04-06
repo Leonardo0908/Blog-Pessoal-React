@@ -3,19 +3,14 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button,Box } from "@material-ui/core"
 import CloseIcon from '@material-ui/icons/Close';
-
-import CadastroPost from '../cadastroPost/CadastroPost';
-import { TokenState } from '../../../store/tokens/tokensReducer';
-import { useSelector } from 'react-redux';
-
 import './ModalPostagem.css';
+import CadastroPost from '../cadastroPost/CadastroPost';
 
 
 function getModalStyle() {
-
   const top = 50 ;
   const left = 50;
- 
+
   return {
     top: `${top}%`,
     left: `${left}%`,
@@ -62,22 +57,20 @@ function ModalPostagem () {
   );
 
   return (
-    
     <div>
-        <Button
-          variant="outlined"
-          className="btnModal"
-          onClick={handleOpen}>Nova Postagem</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          {body}
-        </Modal>
-      </div>
- 
+      <Button
+        variant="outlined"
+        className="btnModal"
+        onClick={handleOpen}>Nova Postagem</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </div>
   );
 }
 export default ModalPostagem
