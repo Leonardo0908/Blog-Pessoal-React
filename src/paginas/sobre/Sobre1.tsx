@@ -2,7 +2,7 @@ import { AppBar, Box, Toolbar,  Typography, Grid } from '@material-ui/core';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import img from "./imagens/img.jpeg"
+import img from "../../assets/img/img.jpeg";
 import { Link } from 'react-router-dom';
 import './Sobre1.css';
 import { TokenState } from '../../store/tokens/tokensReducer';
@@ -63,7 +63,7 @@ function Sobre1() {
                 <h1 className='p10'>Leonardo Rodrigues</h1>
 
                 <Grid className='p10'> 
-                    <img src={img }/>
+                    <img src={img} width="500px" />
             </Grid>
             </AppBar>
             </>

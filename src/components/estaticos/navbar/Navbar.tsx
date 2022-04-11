@@ -8,6 +8,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { useDispatch } from "react-redux";
 import { addToken } from '../../../store/tokens/actions';
 import {toast} from 'react-toastify';
+import LR from "../../../assets/img/LR.jpg";
 
 function Navbar() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -38,7 +39,7 @@ function Navbar() {
         <Toolbar variant="dense">
             <Box className='cursor'>
                 <Typography variant="h5" color="inherit">
-                    BlogPessoal
+                    <img src={LR} alt="Leo" width="120px" />
                 </Typography>
             </Box>
 
@@ -71,14 +72,8 @@ function Navbar() {
                     </Typography>
                 </Box>
                 </Link>
-                <Link to="" className="cursor">
-                    <Box mx={1} onClick={goLogout}>
-                        <Typography variant="h6" color="inherit">
-                            logout
-                        </Typography>
-                    </Box>
-                 </Link>
-                 <Link to="/sobre1" className="cursor">
+                
+                <Link to="/sobre1" className="cursor">
                     <Box mx={1} >
                         <Typography variant="h6" color="inherit">
                             Sobre
@@ -86,6 +81,14 @@ function Navbar() {
                     </Box>
                 </Link>
 
+                <Link to="" className="cursor">
+                    <Box mx={1} onClick={goLogout}>
+                        <Typography variant="h6" className="btSair">
+                            Sair
+                        </Typography>
+                    </Box>
+                 </Link>
+                
             </Box>
 
         </Toolbar>

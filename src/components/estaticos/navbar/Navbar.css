@@ -13,10 +13,6 @@
 }
 
 a:hover {
-    text-decoration:solid;
-	background-position: right bottom;
-	background-color: #ADD8E6;
 	color: #000;
-    border-radius: 30px;
-
 }
+
