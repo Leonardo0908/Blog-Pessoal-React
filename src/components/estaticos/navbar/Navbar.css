@@ -1,8 +1,22 @@
 .cursor{
     cursor: pointer;
-    color: white;
+    color:white;
+    padding: 35px;
+    color: #fff;
+	text-decoration: none;
 }
 
-.text-decorator-none{
-    text-decoration: none;
+.back{
+   /* background: linear-gradient(36deg, blue 8%,  #FF8C00 80%);*/
+   background-color: #4682B4 !important ;
+    height: 100px;
+}
+
+a:hover {
+    text-decoration:solid;
+	background-position: right bottom;
+	background-color: #ADD8E6;
+	color: #000;
+    border-radius: 30px;
+
 }

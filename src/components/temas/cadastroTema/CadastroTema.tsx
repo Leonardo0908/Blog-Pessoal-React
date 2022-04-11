@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
-
 function CadastroTema() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
