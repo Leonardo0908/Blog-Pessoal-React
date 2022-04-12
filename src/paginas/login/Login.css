@@ -1,9 +1,21 @@
 .textos1{
    font-weight: bold !important;
+   font-size: bold !important;
+   color: #FFEFD5 !important;
+    
+   font-family:Georgia, 'Times New Roman', Times, serif !important ;
 }
 
-.imagem{
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+.textos2{
+    font-weight: bold !important;        
+    font-size: bold !important;
+    color: rgb(191, 23, 37) !important;
+     
+    font-family:Georgia, 'Times New Roman', Times, serif !important ;
+ }
+
+.fundo{
+    background-image: url(../../assets/img/imagem1.webp);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -13,4 +25,21 @@
 
 .text-decorator-none{
     text-decoration: none;
+
+    color: rgb(104, 104, 151);
+}
+
+.caixa{
+    background-color: white;
+    border-radius: 30px;
+    border-style: solid;
+    
+    border-color: #F0E68C;
+    background: linear-gradient(36deg, #ffffff90 16%, #31303090 80%)!important;
+}
+
+.btlogar{
+    background-color: #EEE8AA !important;
+    color: black !important;
+    font-size: bold !important;
 }
