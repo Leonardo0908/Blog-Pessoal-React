@@ -1,5 +1,5 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
+import {Typography, TextField, Button, Grid, Box } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
 import './CadastroTema.css';
 import Tema from '../../../models/Tema';
@@ -65,7 +65,7 @@ function CadastroTema() {
     
             if (id !== undefined) {
                 console.log(tema)
-                put(`/tema`, tema, setTema, {
+                put(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
@@ -81,7 +81,7 @@ function CadastroTema() {
                     progress: undefined,
                     });
             } else {
-                post(`/tema`, tema, setTema, {
+                post(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
@@ -106,15 +106,37 @@ function CadastroTema() {
         }
   
     return (
-        <Container maxWidth="sm" className="topo">
-            <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
+        <>
+        <Grid container direction='row' justifyContent='center' alignItems='center' className="topo">
+        <Grid >
+            <Box >
+            <form onSubmit={onSubmit} className="caixa2" >
+                <Typography 
+                    className="tituloTema"
+                    variant="h3" 
+                    color="textSecondary"
+                    component="h1" 
+                    align="center" >Digite um Tema de Livro...
+                </Typography>
+
+                <TextField 
+                    className="textfield1"
+                    value={tema.descricao} 
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} 
+                    id="descricao" 
+                    label="descricao" 
+                    variant="outlined" 
+                    name="descricao" 
+                    margin="normal" fullWidth />
+                <Button type="submit" variant="contained" className='btfinalizar' >
                     Finalizar
                 </Button>
+
             </form>
-        </Container>
+            </Box>
+            </Grid>
+        </Grid>
+        </>
     )
 }
 

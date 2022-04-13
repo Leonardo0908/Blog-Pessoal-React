@@ -47,28 +47,28 @@ function Navbar() {
                 <Link to="/home" className="cursor">
                     <Box mx={1} >
                         <Typography variant="h6" color="inherit">
-                            home
+                            Home
                         </Typography>
                     </Box>
                 </Link>
                 <Link to="/posts" className="cursor">
                     <Box mx={1} >
                         <Typography variant="h6" color="inherit">
-                            postagens
+                            Postagens
                         </Typography>
                     </Box>
                 </Link>
                 <Link to="/temas" className="cursor">
                 <Box mx={1} >
                     <Typography variant="h6" color="inherit">
-                        temas
+                        Temas
                     </Typography>
                 </Box>
                 </Link>
                 <Link to="/formularioTema" className="cursor">
                 <Box mx={1} >
                     <Typography variant="h6" color="inherit">
-                        cadastrar tema
+                        Cadastrar tema
                     </Typography>
                 </Box>
                 </Link>

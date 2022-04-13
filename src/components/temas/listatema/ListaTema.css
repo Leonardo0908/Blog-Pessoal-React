@@ -1,3 +1,10 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.ca{
+    /*background: linear-gradient(36deg, rgb(190, 190, 210) 8%, rgb(35, 141, 190) 80%);*/
+
+   /* background: linear-gradient(36deg, rgb(204, 206, 206) 8%, #901651 80%);*/
+   background: linear-gradient(36deg, rgb(204, 206, 206) 8%, #3E80A6 80%);
+}

@@ -45,7 +45,9 @@ function ModalPostagem () {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    
+    
+    <div style={modalStyle} className={classes.paper} >
       <Box display="flex" justifyContent="flex-end" className="cursor">
         <CloseIcon onClick={handleClose}/>
       
@@ -54,15 +56,16 @@ function ModalPostagem () {
       <CadastroPost/>
       
     </div>
+    
   );
 
   return (
-    <div>
+    <div  >
       <Button
         variant="outlined"
         className="botao"
         onClick={handleOpen}>Nova Postagem</Button>
-      <Modal
+      <Modal 
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"

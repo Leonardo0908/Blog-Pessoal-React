@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
+import { Grid, Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
 
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -94,7 +94,6 @@ function CadastroPost() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-
         if (id !== undefined) {
              put(`/postagens`, postagem, setPostagem, {
                 headers: {
@@ -138,10 +137,12 @@ function CadastroPost() {
 
     return (
         <>
-        <Container maxWidth="sm" className="topo">
+        <Grid >
+        <Container maxWidth="sm" className="topo1">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-                
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Poste o Nome de um  Livro</Typography>
+               
+                <Typography variant="h6" color="textSecondary" component="h1" align="center" >No texto fale Sobre o Livro</Typography>
                 <TextField
                      value={postagem.titulo} 
                      onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
@@ -186,8 +187,7 @@ function CadastroPost() {
                 </FormControl>
             </form>
         </Container>
-
-       
+        </Grid>
      </>
     )
 }

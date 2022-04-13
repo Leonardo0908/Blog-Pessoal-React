@@ -1,3 +1,43 @@
 .topo{
-    margin-top: 20px;
+    background-image: url(../../../assets/img/imagem2.jpg);
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+   
+
+    /*width: 100vw;
+    min-height: calc(100vh - 64px); */
+}
+
+.tituloTema{
+    font-weight: bold;
+    color: rgb(0, 0, 0) !important;
+}
+
+.caixa2{
+    height: 210px;
+    background-color: white;
+    border-radius: 30px;
+    border-style: solid;
+    padding: 50px;
+    
+
+    border-color: #F0E68C;
+    background: linear-gradient(36deg, #ffffff90 16%, #31303090 80%)!important;
+}
+
+
+.textfield1{
+    background-color: #dee5e9;
+    
+}
+
+
+.btfinalizar{
+    background-color: rgb(197, 142, 32) !important;
+    color: beige !important;
+    border-radius: 30px !important;
+    margin-block-start: 30px !important;
 }
