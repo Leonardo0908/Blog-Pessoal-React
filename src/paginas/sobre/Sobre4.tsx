@@ -3,10 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { UserState } from '../../store/user/userReducer';
 import './Sobre4.css';
 function Sobre4() {
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       );
       return (

@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import {useHistory } from 'react-router-dom'
 import './Navbar.css'
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { useDispatch } from "react-redux";
-import { addToken } from '../../../store/tokens/actions';
+import { addToken } from '../../../store/user/action';
 import {toast} from 'react-toastify';
 import LR from "../../../assets/img/LR.jpg";
 
 function Navbar() {
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       );
     let history = useHistory();
@@ -80,6 +80,15 @@ function Navbar() {
                         </Typography>
                     </Box>
                 </Link>
+
+                <Link to="/perfil" className="text-decorator-none">
+                    <Box mx={1} className='cursor'>
+                        <Typography variant="h6" color="inherit">
+                             Perfil
+                        </Typography>
+                    </Box>
+                </Link>
+
 
                 <Link to="" className="cursor">
                     <Box mx={1} onClick={goLogout}>

@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import img from "../../assets/img/img.jpeg";
 import { Link } from 'react-router-dom';
 import './Sobre1.css';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { UserState } from '../../store/user/userReducer';
 
 function Sobre1() {
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       );
       return (

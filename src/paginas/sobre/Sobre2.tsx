@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import './Sobre2.css';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { UserState } from '../../store/user/userReducer';
 
 function Sobre2() {
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       );
       return (

@@ -5,19 +5,24 @@ import './CadastroTema.css';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { toast } from 'react-toastify';
+
+
 
 function CadastroTema() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       );
     const [tema, setTema] = useState<Tema>({
         id: 0,
-        descricao: ''
+        descricao: '',
+        
     })
+
+
 
     useEffect(() => {
         if (token == "") {
@@ -43,7 +48,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
@@ -55,6 +60,7 @@ function CadastroTema() {
             setTema({
                 ...tema,
                 [e.target.name]: e.target.value,
+               
             })
     
         }
@@ -64,12 +70,14 @@ function CadastroTema() {
             console.log("tema " + JSON.stringify(tema))
     
             if (id !== undefined) {
-                console.log(tema)
-                put(`/temas`, tema, setTema, {
+                // TRY: Tenta executar a atualização 
+            try {
+                await put(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
+
                 toast.success('Tema atualizado com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
@@ -79,13 +87,34 @@ function CadastroTema() {
                     draggable: false,
                     theme: "colored",
                     progress: undefined,
-                    });
-            } else {
-                post(`/temas`, tema, setTema, {
+                });
+
+                // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                toast.error('Dados inconsistentes.', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
+            }
+
+            // Se o ID for indefinido, tente Cadastrar
+        } else {
+
+            // TRY: Tenta executar o cadastro
+            try {
+                await post(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
+
                 toast.success('Tema cadastrado com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
@@ -95,9 +124,24 @@ function CadastroTema() {
                     draggable: false,
                     theme: "colored",
                     progress: undefined,
-                    });
+                });
+                // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                toast.error('Dados inconsistentes.', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
             }
-            back()
+        }
+
+        back()
     
         }
     

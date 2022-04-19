@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Postagem from '../../../models/Postagem';
-import { busca } from '../../../services/Service'
+import { busca, buscaId } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { toast } from 'react-toastify';
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let history = useHistory();
-  const token = useSelector<TokenState, TokenState["tokens"]>(
+  const { id } = useParams<{ id: string }>();
+  
+  const [postagem, setPostagem] = useState<Postagem>({
+    id: 0,
+    titulo: "",
+    texto: "",
+    tema: null,
+    usuario: null
+  })
+  const token = useSelector<UserState, UserState["tokens"]>(
     (state) => state.tokens
   );
 
   useEffect(() => {
-    if (token === "") {
-      toast.error('Você precisa estar logado', {
+    if (token == "") {
+      toast.info("Você precisa estar logado", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -27,11 +36,19 @@ function ListaPostagem() {
         draggable: false,
         theme: "colored",
         progress: undefined,
-    });
+      });
       history.push("/login")
 
     }
   }, [token])
+
+  async function findByIdPostagem(id: string) {
+    await buscaId(`postagens/${id}`, setPostagem, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
 
   async function getPost() {
     await busca("/postagens/all", setPosts, {

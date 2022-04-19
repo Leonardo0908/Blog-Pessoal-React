@@ -21,6 +21,7 @@ import Sobre2 from './paginas/sobre/Sobre2';
 import Sobre3 from './paginas/sobre/Sobre3';
 import Sobre4 from './paginas/sobre/Sobre4';
 import Sobre5 from './paginas/sobre/Sobre5';
+import Perfil from './paginas/Perfil/Perfil';
 
 function App() {
   return (
@@ -90,6 +91,10 @@ function App() {
           </Route>
           <Route path='/deletarTema/:id'>
             <DeletarTema />
+          </Route>
+
+          <Route path='/perfil'>
+              <Perfil />
           </Route>
 
         </div>
