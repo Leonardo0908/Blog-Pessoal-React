@@ -103,11 +103,11 @@ function CadastroUsuario() {
         }
     }
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='imagem2'></Grid>
-            <Grid item xs={6} alignItems='center'>
-                <Box paddingX={10}>
-                    <form onSubmit={onSubmit}>
+        <Grid container direction='row' justifyContent='center' alignItems='center' className='imagem2'>
+            <Grid item xs={12} ></Grid>
+            
+                <Box paddingX={10} >
+                    <form onSubmit={onSubmit} className="caixa3" >
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
                        
                         <TextField
@@ -118,6 +118,7 @@ function CadastroUsuario() {
                             variant='outlined' 
                             name='nome' 
                             margin='normal' 
+                            style={{backgroundColor: "#A9A9A9" }}
                             fullWidth />
                       
                         <TextField
@@ -128,6 +129,7 @@ function CadastroUsuario() {
                             variant='outlined' 
                             name='usuario' 
                             margin='normal'
+                            style={{backgroundColor: "#A9A9A9" }}
                             fullWidth />
 
                         <TextField
@@ -138,6 +140,7 @@ function CadastroUsuario() {
                             variant='outlined' 
                             name='foto' 
                             margin='normal'
+                            style={{backgroundColor: "#A9A9A9" }}
                             fullWidth />
                         
                         <TextField 
@@ -149,6 +152,7 @@ function CadastroUsuario() {
                             name='senha' 
                             margin='normal' 
                             type='password' 
+                            style={{backgroundColor: "#A9A9A9"}}
                             fullWidth />
 
                         <TextField 
@@ -160,21 +164,22 @@ function CadastroUsuario() {
                             name='confirmarSenha' 
                             margin='normal' 
                             type='password' 
+                            style={{backgroundColor: "#A9A9A9" }}
                             fullWidth />
 
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
+                                <Button variant='contained' color='secondary' className='btnCancelar2'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button type='submit' variant='contained' className="btcadastrar" >
                                     Cadastrar
                             </Button>
                         </Box>
                     </form>
                 </Box>
-            </Grid>
+           
 
 
 

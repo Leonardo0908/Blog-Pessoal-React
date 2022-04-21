@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { UserState } from '../../store/user/userReducer'
 
+import Postagem from '../../models/Postagem';
+
 import User from '../../models/User'
-import { buscaId } from '../../services/Service'
+import { busca, buscaId } from '../../services/Service'
 
 import './Perfil.css'
 
 function Perfil() {
 
     let history = useHistory()
+
+    const [posts, setPosts] = useState<Postagem[]>([])
 
     // Pega o ID guardado no Store
     const id = useSelector<UserState, UserState["id"]>(
@@ -28,8 +32,19 @@ function Perfil() {
         nome: '',
         usuario: '',
         senha: '',
-        foto: ''
+        foto: '',
+        
     })
+
+    const [postagem, setPostagem] = useState<Postagem>({
+        id: 0,
+        titulo: "",
+        texto: "",
+        tema: null,
+        usuario: user
+      })
+
+    
 
     useEffect(() => {
         if (token === "") {
@@ -53,12 +68,29 @@ function Perfil() {
         }
     }, [id])
 
+    async function getUser() {
+        await busca("/postagens/all", setPosts, {
+          headers: {
+            'Authorization': token
+          }
+        })
+      }
+    
+
+    useEffect(() => {
+
+        getUser()
+    
+      }, [posts.length])
+
     return (
+        <>
+       
         <Box className='card-principal'>
             <Box className='card-container-imagem'>
                 <img className='card-imagem'
                     src={ user.foto }
-                    alt={ user.nome } />
+                    alt={ user.nome} />
             </Box>
 
             <Box className='card-container-info'>
@@ -66,18 +98,56 @@ function Perfil() {
                     <h1>{ user.nome }</h1>
                     <hr />
                 </Box>
+                {
+        posts.map(post => (    
+            
+                <Box m={2} >
+            <Card variant="outlined"  className='ca2'>
+              <CardContent>
+              <Typography variant="body2" component="p">
+                 Autor: {post.usuario?.nome}
+                </Typography>
+                <Typography color="textSecondary" gutterBottom>
+                  Postagem
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {post.titulo}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.texto}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.tema?.descricao}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Box display="flex" justifyContent="center" mb={1.5}>
 
-                <p className='card-container-texto'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam accusantium totam incidunt architecto maiores, perferendis eius. Tempora ullam magni dolore voluptatibus, quidem sunt tempore distinctio ut aliquam modi aliquid officiis.
-                    Assumenda voluptatibus, animi pariatur voluptatum magnam ullam aspernatur optio suscipit incidunt dolor modi quos aperiam. Quam possimus rerum iste nobis quas porro unde sequi, sed nisi labore est voluptas corrupti.
-                    Deleniti officiis sint perspiciatis nisi iste, voluptate sunt asperiores dolor sapiente non corporis omnis voluptatem soluta. Nulla odio alias aperiam, magnam eaque assumenda tempora! Inventore odit iure unde placeat iste.
-                </p>
-
-                <p className='card-container-texto'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur tempore enim hic ad, optio ratione repellendus et. Nemo facilis laborum eum facere ipsam ab ad iusto eligendi deleniti qui?
-                </p>
+                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                    <Box mx={1}>
+                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                        atualizar
+                      </Button>
+                    </Box>
+                  </Link>
+                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" size='small' color="secondary">
+                        deletar
+                      </Button>
+                    </Box>
+                  </Link>
+                </Box>
+              </CardActions>
+            </Card>
+          </Box>
+             ))
+            }
             </Box>
+                
         </Box>
+        
+        </>
     )
 }
 

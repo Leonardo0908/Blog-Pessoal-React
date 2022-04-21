@@ -8,18 +8,33 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { UserState } from '../../../store/user/userReducer';
 import { toast } from 'react-toastify';
+import User from '../../../models/User';
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let history = useHistory();
-  const { id } = useParams<{ id: string }>();
+  /*const { id } = useParams<{ id: string }>();*/
+
+  const id = useSelector<UserState, UserState["id"]>(
+    (state) => state.id
+  );
+
+const [user, setUser] = useState<User>({
+  id: +id,    // Faz uma conversão de String para Number
+  nome: '',
+  usuario: '',
+  senha: '',
+  foto: '',
+ 
+})
+
   
   const [postagem, setPostagem] = useState<Postagem>({
     id: 0,
     titulo: "",
     texto: "",
     tema: null,
-    usuario: null
+    usuario: user
   })
   const token = useSelector<UserState, UserState["tokens"]>(
     (state) => state.tokens
@@ -50,6 +65,7 @@ function ListaPostagem() {
     })
   }
 
+
   async function getPost() {
     await busca("/postagens/all", setPosts, {
       headers: {
@@ -71,8 +87,11 @@ function ListaPostagem() {
           <Box m={2} >
             <Card variant="outlined"  className='ca2'>
               <CardContent>
+                <Typography variant="h6" component="h2" className='auto' >
+                  autor: {post.usuario?.nome}
+                </Typography>
                 <Typography color="textSecondary" gutterBottom>
-                  Postagens
+                  Postagem
                 </Typography>
                 <Typography variant="h5" component="h2">
                   {post.titulo}
@@ -83,6 +102,7 @@ function ListaPostagem() {
                 <Typography variant="body2" component="p">
                   {post.tema?.descricao}
                 </Typography>
+                
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>

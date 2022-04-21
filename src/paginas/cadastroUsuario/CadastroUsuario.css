@@ -1,13 +1,13 @@
 .imagem2{
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+    background-image: url(../../assets/img/imagem4.jpeg);
     background-repeat: no-repeat;
-   /* width: 100vh;
-    min-height: 100vh;*/
+    width: 100vw;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
 
-    width: 100vw;
-    min-height: calc(100vh - 64px); 
+    /*width: 100vw;
+    min-height: calc(100vh - 64px); */
 }
 
 .textos2{
@@ -16,4 +16,28 @@
 
 .btnCancelar{
     margin-right: 20px !important;
+}
+
+.caixa3{
+    background-color: white;
+    border-radius: 30px;
+    border-style: solid;
+    width: 500px;
+    
+    border-color: #444441;
+    background: linear-gradient(36deg, #ffffff90 16%, #31303090 80%)!important;
+}
+
+.btnCancelar2{
+    background-color: #ee3c3c !important;
+    color: black !important;
+    font-size: bold !important;
+   
+}
+
+.btcadastrar{
+    background-color: 	#00BFFF !important;
+    color: black !important;
+    font-size: bold !important;
+    margin-left: 25px !important;
 }
