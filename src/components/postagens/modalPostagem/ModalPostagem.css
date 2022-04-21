@@ -7,3 +7,17 @@
     border-color: white !important;
     background-color: white !important;
 }
+
+button.botao:hover{
+    background-color: #11c3e2 !important;
+    border:3px solid #131313;
+}
+
+
+.botao{
+    border-color: 3px rgb(0, 0, 0) !important;
+    background-color: #acadaf !important;
+    color: rgb(68, 68, 68) !important;
+    border-radius: 30px !important;
+    font-size: bold !important;
+}

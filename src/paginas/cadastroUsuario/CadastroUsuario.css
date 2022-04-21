@@ -28,16 +28,34 @@
     background: linear-gradient(36deg, #ffffff90 16%, #31303090 80%)!important;
 }
 
+button.btnCancelar2:hover{
+    background-color: #e91e1e !important;
+    color: #090b0a;
+    border:3px solid #c13b19;
+}
+
 .btnCancelar2{
-    background-color: #ee3c3c !important;
+    background-color: #982727 !important;
     color: black !important;
+    border: 2px solid #110f0f !important;
     font-size: bold !important;
-   
+    border-radius: 30px !important;
+  
+}
+
+button.btcadastrar:hover{
+    background-color: #11e21f !important;
+    color: #002c06;
+    border:3px solid #00ff00;
 }
 
 .btcadastrar{
-    background-color: 	#00BFFF !important;
+    background-color: 	#45bd35 !important;
     color: black !important;
+    border: 2px solid #002c06 !important;
     font-size: bold !important;
     margin-left: 25px !important;
+    border-radius: 30px !important;
 }
+
+

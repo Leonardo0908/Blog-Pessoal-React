@@ -72,17 +72,9 @@ function Navbar() {
                     </Typography>
                 </Box>
                 </Link>
-                
-                <Link to="/sobre1" className="cursor">
-                    <Box mx={1} >
-                        <Typography variant="h6" color="inherit">
-                            Sobre
-                        </Typography>
-                    </Box>
-                </Link>
 
-                <Link to="/perfil" className="text-decorator-none">
-                    <Box mx={1} className='cursor'>
+                <Link to="/perfil" className='cursor'>
+                    <Box mx={1} >
                         <Typography variant="h6" color="inherit">
                              Perfil
                         </Typography>

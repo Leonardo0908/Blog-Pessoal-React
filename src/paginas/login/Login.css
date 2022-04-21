@@ -39,6 +39,12 @@
     background: linear-gradient(36deg, #ffffff90 16%, #31303090 80%)!important;
 }
 
+button.btlogar:hover{
+    background-color: #c5a42e !important;
+    color: #002c06;
+    border:3px solid #11100e;
+}
+
 .btlogar{
     background-color: #EEE8AA !important;
     color: black !important;

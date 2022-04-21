@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import { useSelector } from 'react-redux'
-import { useHistory, Link } from 'react-router-dom'
-import { UserState } from '../../store/user/userReducer'
-
-import Postagem from '../../models/Postagem';
+import { useHistory } from 'react-router-dom'
 
 import User from '../../models/User'
-import { busca, buscaId } from '../../services/Service'
+import { buscaId } from '../../services/Service'
 
 import './Perfil.css'
+
+import { toast } from 'react-toastify'
+import { Grid } from '@mui/material'
+import { UserState } from '../../store/user/userReducer'
 
 function Perfil() {
 
     let history = useHistory()
-
-    const [posts, setPosts] = useState<Postagem[]>([])
 
     // Pega o ID guardado no Store
     const id = useSelector<UserState, UserState["id"]>(
@@ -32,24 +31,22 @@ function Perfil() {
         nome: '',
         usuario: '',
         senha: '',
-        foto: '',
-        
+        foto: ''
     })
-
-    const [postagem, setPostagem] = useState<Postagem>({
-        id: 0,
-        titulo: "",
-        texto: "",
-        tema: null,
-        usuario: user
-      })
-
-    
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
-            history.push("/login")
+            toast.error('Você precisa estar logado.', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+            history.push("/logar")
         }
     }, [token])
 
@@ -68,86 +65,42 @@ function Perfil() {
         }
     }, [id])
 
-    async function getUser() {
-        await busca("/postagens/all", setPosts, {
-          headers: {
-            'Authorization': token
-          }
-        })
-      }
-    
-
-    useEffect(() => {
-
-        getUser()
-    
-      }, [posts.length])
-
     return (
-        <>
-       
-        <Box className='card-principal'>
+        <Grid xs={12}  className='card-principal' container spacing={2}>
             <Box className='card-container-imagem'>
                 <img className='card-imagem'
-                    src={ user.foto }
-                    alt={ user.nome} />
+                    src={user.foto}
+                    alt={user.nome} />
             </Box>
-
-            <Box className='card-container-info'>
-                <Box>
-                    <h1>{ user.nome }</h1>
-                    <hr />
-                </Box>
-                {
-        posts.map(post => (    
+            <h1 className='h1-nome-perfil'> {user.nome} </h1> 
             
-                <Box m={2} >
-            <Card variant="outlined"  className='ca2'>
-              <CardContent>
-              <Typography variant="body2" component="p">
-                 Autor: {post.usuario?.nome}
-                </Typography>
-                <Typography color="textSecondary" gutterBottom>
-                  Postagem
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  {post.titulo}
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {post.texto}
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Box display="flex" justifyContent="center" mb={1.5}>
-
-                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                    <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                        atualizar
-                      </Button>
-                    </Box>
-                  </Link>
-                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                    <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
-                        deletar
-                      </Button>
-                    </Box>
-                  </Link>
-                </Box>
-              </CardActions>
-            </Card>
-          </Box>
-             ))
-            }
-            </Box>
+            <Grid item xs={12 }   >
                 
-        </Box>
+            </Grid>
+            
+            <Grid className="card-container-info card-container-texto" item xs={12} spacing={0}>
+          
+                <Box className='boxText-PerFil'>
+                
+                <h2>Descrição: </h2>
+                <p className='card-container-texto'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam accusantium totam incidunt architecto maiores, perferendis eius. Tempora ullam magni dolore voluptatibus, quidem sunt tempore distinctio ut aliquam modi aliquid officiis.
+                    Assumenda voluptatibus, animi pariatur voluptatum magnam ullam aspernatur optio suscipit incidunt dolor modi quos aperiam. Quam possimus rerum iste nobis quas porro unde sequi, sed nisi labore est voluptas corrupti.
+                    Deleniti officiis sint perspiciatis nisi iste, voluptate sunt asperiores dolor sapiente non corporis omnis voluptatem soluta. Nulla odio alias aperiam, magnam eaque assumenda tempora! Inventore odit iure unde placeat iste.
+                </p>
+
+                <p className='card-container-texto'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur tempore enim hic ad, optio ratione repellendus et. Nemo facilis laborum eum facere ipsam ab ad iusto eligendi deleniti qui?
+                </p>
+                    
+                </Box>
+
+            </Grid>
+
+
+
+        </Grid>
         
-        </>
     )
 }
 

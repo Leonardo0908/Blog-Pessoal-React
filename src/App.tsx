@@ -16,11 +16,6 @@ import {Provider} from 'react-redux';
 import store from './store/store';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Sobre1 from './paginas/sobre/Sobre1';
-import Sobre2 from './paginas/sobre/Sobre2';
-import Sobre3 from './paginas/sobre/Sobre3';
-import Sobre4 from './paginas/sobre/Sobre4';
-import Sobre5 from './paginas/sobre/Sobre5';
 import Perfil from './paginas/Perfil/Perfil';
 
 function App() {
@@ -52,26 +47,6 @@ function App() {
           </Route>
           <Route path='/posts'>
             <ListaPostagem />
-          </Route>
-
-          <Route path='/sobre1'>
-            <Sobre1 />
-          </Route>
-
-          <Route path='/sobre2'>
-            <Sobre2 />
-          </Route>
-
-          <Route path='/sobre3'>
-            <Sobre3 />
-          </Route>
-
-          <Route path='/sobre4'>
-            <Sobre4 />
-          </Route>
-
-          <Route path='/sobre5'>
-            <Sobre5 />
           </Route>
 
           <Route exact path='/formularioPostagem'>
