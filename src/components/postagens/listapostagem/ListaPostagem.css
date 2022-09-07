@@ -8,7 +8,10 @@
     background: linear-gradient(36deg, rgb(234, 231, 231) 8%, rgb(143, 143, 146) 80%);
 }
 
-.auto{
-    color: rgb(185, 69, 40);
+.auto {
+    font-weight: bold !important;
 }
 
+.avatar {
+    padding: 10px ;
+}

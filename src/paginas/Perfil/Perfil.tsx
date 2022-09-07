@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Box } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-
 import User from '../../models/User'
 import { buscaId } from '../../services/Service'
-
-import './Perfil.css'
-
 import { toast } from 'react-toastify'
 import { Grid } from '@mui/material'
 import { UserState } from '../../store/user/userReducer'
+import './Perfil.css'
+
 
 function Perfil() {
 
@@ -66,19 +64,20 @@ function Perfil() {
     }, [id])
 
     return (
-        <Grid xs={12}  className='card-principal' container spacing={2}>
+        <Grid xs={12}  className='card-principal'  >
             <Box className='card-container-imagem'>
                 <img className='card-imagem'
                     src={user.foto}
                     alt={user.nome} />
+                    <h1 className='h1-nome-perfil'> {user.nome} </h1> 
             </Box>
-            <h1 className='h1-nome-perfil'> {user.nome} </h1> 
             
-            <Grid item xs={12 }   >
+            
+            <Grid item xs={12 } >
                 
             </Grid>
             
-            <Grid className="card-container-info card-container-texto" item xs={12} spacing={0}>
+            <Grid className="card-container-info card-container-texto" item xs={12} >
           
                 <Box className='boxText-PerFil'>
                 
@@ -88,17 +87,9 @@ function Perfil() {
                     Assumenda voluptatibus, animi pariatur voluptatum magnam ullam aspernatur optio suscipit incidunt dolor modi quos aperiam. Quam possimus rerum iste nobis quas porro unde sequi, sed nisi labore est voluptas corrupti.
                     Deleniti officiis sint perspiciatis nisi iste, voluptate sunt asperiores dolor sapiente non corporis omnis voluptatem soluta. Nulla odio alias aperiam, magnam eaque assumenda tempora! Inventore odit iure unde placeat iste.
                 </p>
-
-                <p className='card-container-texto'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur tempore enim hic ad, optio ratione repellendus et. Nemo facilis laborum eum facere ipsam ab ad iusto eligendi deleniti qui?
-                </p>
                     
                 </Box>
-
             </Grid>
-
-
-
         </Grid>
         
     )

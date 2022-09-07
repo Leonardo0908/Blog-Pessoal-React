@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId } from '../../../services/Service'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, Button, Typography, Avatar } from '@material-ui/core';
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -87,21 +87,31 @@ const [user, setUser] = useState<User>({
           <Box m={2} >
             <Card variant="outlined"  className='ca2'>
               <CardContent>
-                <Typography variant="h6" component="h2" className='auto' >
-                  autor: {post.usuario?.nome}
-                </Typography>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography variant="h4" color="textSecondary" gutterBottom>
                   Postagem
                 </Typography>
-                <Typography variant="h5" component="h2">
-                  {post.titulo}
+
+                <div className="avatar" >
+                  <Avatar alt="Perfil" src={post.usuario?.foto} />
+                </div>
+
+                <Typography variant="h6" component="h2" className='auto' >
+                  Autor: {post.usuario?.nome}
                 </Typography>
-                <Typography variant="body2" component="p">
+
+                <Typography variant="h6" component="h3" className='auto' >
+                  Tema: {post.tema?.descricao}
+                </Typography>
+                
+                <Typography variant="h6" component="h2" className='auto' >
+                  Nome: {post.titulo}
+                </Typography>
+
+                <Typography variant="body1" component="p">
                   {post.texto}
                 </Typography>
-                <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
-                </Typography>
+
+                
                 
               </CardContent>
               <CardActions>

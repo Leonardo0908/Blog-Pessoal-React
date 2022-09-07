@@ -197,10 +197,10 @@ function CadastroPost() {
                 <TextField
                      value={postagem.titulo} 
                      onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
-                     id="titulo" 
-                     label="titulo" 
+                     id="Nome" 
+                     label="Nome" 
                      variant="outlined" 
-                     name="titulo" 
+                     name="Nome" 
                      margin="normal"
                      fullWidth />
 
